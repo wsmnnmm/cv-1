@@ -118,9 +118,9 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
-var html = document.querySelector("#demo");
+var html = document.querySelector("#html");
 var style = document.querySelector("#style");
-var string = "\n/*\u4F60\u597D\uFF0C\u963F\u91CC\u560E\u591A\u88F9\u624E\u4F0A\u9A6C\u65AF*/\n#div1{\n    border: 1px solid red;\n    width: 400px;\n    height: 400px;\n}\n/*\u63A5\u4E0B\u6765\u753B\u592A\u6781\u56FE\n *\u9996\u5148\uFF0C\u628Adiv\u53D8\u6210\u4E00\u4E2A\u5706\n */\n#div1{\n    border-radius: 50%;\n    box-shadow: 0 0 3px rgba(0,0,0,.5);\n    border: none;\n}\n/*\u592A\u6781\u662F\u9634\u9633\u5F62\u6210\n *\u4E00\u9ED1\u4E00\u767D\n */\n#div1{\n    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);\n}\n";
+var string = "\n/*\u4F60\u597D\uFF0C\u963F\u91CC\u560E\u591A\u88F9\u624E\u4F0A\u9A6C\u65AF*/\n#div1{\n    border: 1px solid red;\n    width: 200px;\n    height: 200px;\n}\n/*\u63A5\u4E0B\u6765\u753B\u592A\u6781\u56FE\n *\u9996\u5148\uFF0C\u628Adiv\u53D8\u6210\u4E00\u4E2A\u5706\n */\n#div1{\n    border-radius: 50%;\n    box-shadow: 0 0 3px rgba(0,0,0,.5);\n    border: none;\n}\n/*\u592A\u6781\u662F\u9634\u9633\u5F62\u6210\n *\u4E00\u9ED1\u4E00\u767D\n */\n#div1{\n    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);\n}\n/*\u52A0\u4E0A\u592A\u6781\u7403*/\n#div1::before{\n    width: 100px;\n    height: 100px;\n    top: 0;\n    left: 50%;\n    transform: translateX(-50%);\n    background: #000;\n    border-radius: 50%;\n    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(0,0,0,1) 23%, rgba(0,0,0,1) 100%);\n}\n#div1::after{\n    width: 100px;\n    height: 100px;\n    bottom: 0;\n    left: 50%;\n    transform: translateX(-50%);\n    background: #fff;\n    border-radius: 50%;\n    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 22%, rgba(255,255,255,1) 23%, rgba(255,255,255,1) 100%);\n}\n";
 var string2 = ''; // string = string.replace(/\n/g, '<br>')
 //replace 瑞颇累死 替换字符串
 
@@ -140,16 +140,17 @@ var step = function step() {
     }
 
     html.innerHTML = string2;
-    style.innerHTML = string.substring(0, n); //短电
+    style.innerHTML = string.substring(0, n); //断点
 
+    window.scrollTo(0, 9999);
+    html.scrollTo(0, 9999);
     n = n + 1;
-    console.log(string2);
 
     if (n < string.length) {
       //判断是否到末尾，没到就下一步
       step();
     }
-  }, 40);
+  }, 20);
 };
 
 step();
@@ -181,7 +182,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59075" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59657" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
